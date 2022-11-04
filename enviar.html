@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            background-color: lightgray;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1fd5b9;
+        }
+
+        .nome {
+            margin: 5px 30px;
+        }
+
+        .nome p {
+            font-size: 30px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: white;
+        }
+
+        table {
+            width: 100%;
+            text-align: left;
+            padding: 50px;
+            text-transform: uppercase;
+        }
+
+        thead {
+            background-color: #31425a;
+            color: white;
+        }
+
+        th,
+        td {
+            padding: 10px 20px;
+        }
+
+        tbody tr {
+            background-color: white;
+            border: 1px solid grey;
+        }
+
+        .cabecalho {
+            background: aquamarine;
+            color: #fff;
+            height: 90px;
+
+        }
+
+        .logo img {
+            height: 80px;
+            margin: 5px 30px;
+        }
+
+        .menu ul {
+            flex-grow: 10;
+            display: flex;
+
+        }
+
+        .menu h2 {
+            margin: 22px 160px;
+        }
+
+        .box {
+            height: 80px;
+            background: rgb(61, 78, 116);
+        }
+
+        .box2 {
+            height: 80px;
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <header class="cabecalho">
+        <div class="logo">
+            <img src="https://egssistemas.com.br/logo-egs.svg" alt="Logo" />
+        </div>
+        <div class="box">
+            <nav class="menu">
+                <ul>
+                    <h2>NOME</h2>
+                    <h2>SOBRENOME</h2>
+                    <h2>DATA</h2>
+                    <h2>E-MAIL</h2>
+                    <h2>CPF</h2>
+                </ul>
+            </nav>
+        </div>
+        <div class="box2"></div>
+    </header> -->
+    <header>
+        <div class="logo">
+            <a href="teste.html">
+                <img src="https://egssistemas.com.br/logo-egs.svg" alt="Logo" />
+            </a>
+        </div>
+        <div class="nome">
+
+        </div>
+    </header>
+    <table>
+        <thead cellspacing="0" cellpadding="0">
+            <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Data</th>
+                <th>Email</th>
+                <th>Cpf</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+
+</html>
+
+<script>
+    cadastros = JSON.parse(localStorage.getItem('cadastros'));
+    console.log(cadastros.length);
+
+    tabela = document.querySelector("tbody");
+    nome = document.querySelector(".nome");
+
+    for (let i = 0; i < cadastros.length; i++) {
+
+        tabela.innerHTML += "<tr><td>" + cadastros[i].nome + "</td> <td>" + cadastros[i].sobrenome + "</td> <td>" + cadastros[i].idade + "</td> <td>" + cadastros[i].email + "</td> <td>" + cadastros[i].cpf + "</td></tr>"
+
+        nome.innerHTML = "<p>" + cadastros[cadastros.length - 1].nome + " " + cadastros[cadastros.length - 1].sobrenome + "</p>";
+
+    }
+
+
+
+</script>

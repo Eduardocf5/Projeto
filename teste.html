@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Teste EGS Sistemas</title>
+    <style>
+        html {
+            height: 100%;
+
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            background-color: lightgray;
+            height: 100%;
+
+        }
+
+        .conteudo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100%;
+
+        }
+
+        .menu-principal h1 {
+            position: relative;
+            top: -150px;
+            margin-left: 690px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #fff;
+            font-size: 30px;
+
+        }
+
+        .menu-principal h2 {
+            position: relative;
+            top: -150px;
+            margin-inline-start: 685px;
+            height: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: aquamarine;
+            font-size: 20px;
+
+        }
+
+        .menu-principal td {
+            position: relative;
+            top: -100px;
+            margin-inline-start: 595px;
+            margin-top: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #fff;
+            font-size: 1.0em;
+            display: block;
+
+        }
+
+        .box {
+            width: 1000px;
+            height: 800px;
+            background: linear-gradient(to right, aquamarine 10%, rgb(50, 214, 255) 50%, rgb(61, 78, 116) 50%);
+            border-radius: 30px;
+
+        }
+
+        .menu-principal button {
+            margin: 0 0 0 570px;
+            font-family: 'trebuchet ms';
+            color: #FFFFFF !important;
+            font-size: 20px;
+            text-shadow: 0 0 0 #FFFFFF;
+            box-shadow: 0 0 0 #2effffa4;
+            padding: 8px 150px;
+            border-radius: 0;
+            border: 0 solid #2effffa4;
+            background: #2effffa4;
+
+        }
+
+        .menu-principal button:active {
+            cursor: pointer;
+            position: relative;
+            top: 2px;
+
+        }
+
+        .logo {
+            position: relative;
+            width: 200px;
+            top: 270px;
+            left: 145px;
+        }
+
+        input[type=text],
+        input[type=date] {
+            padding: 10px 5px;
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            width: 100%;
+            color-scheme: dark;
+        }
+
+        input::placeholder {
+            color: rgb(214, 214, 214);
+        }
+    </style>
+
+<body>
+    <div class="conteudo">
+        <div class="menu-principal">
+            <div class="box">
+                <div class="logo">
+                    <a>
+                        <img src="https://egssistemas.com.br/logo-egs.svg" alt="Logo" />
+                    </a>
+                </div>
+                <div class="Cabeçalho">
+                    <h1>T E S T E</h1>
+                    <h2>EGS Sistemas</h2>
+                </div>
+                <form action="enviar.html">
+                    <table>
+                        <tr>
+                            <td>NOME:</td>
+                            <td><input type="text" name="nome" size="40" placeholder="Escreva seu nome" id="nome">
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SOBRENOME:</td>
+                            <td><input type="text" name="sobrenome" size="40" placeholder="Escreva seu sobrenome"
+                                    id="sobrenome">
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>IDADE:</td>
+                            <td><input type="date" name="idade" size="40" placeholder="00/00/0000" id="idade">
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>E-MAIL:</td>
+                            <td><input type="text" name="e-mail" size="40" placeholder="Escreva seu e-mail" id="email">
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CPF:</td>
+                            <td><input type="text" name="e-mail" size="40" placeholder="000.000.000-00" id="cpf">
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="aceitaCondicoes" value="ok" id="condicoes">
+                                <label for="condicoes">Aceito os termos e condições</label>
+                                <br />
+                            </td>
+                        </tr>
+                    </table>
+                    <button onclick="clickBotao()">ENVIAR</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        function clickBotao() {
+            var nome = document.getElementById("nome");
+            var sobrenome = document.getElementById("sobrenome");
+            var idade = document.getElementById("idade");
+            var email = document.getElementById("email");
+            var cpf = document.getElementById("cpf");
+
+            // Pega a lista já cadastrada, se não houver vira um array vazio
+            var lista_cadastro = JSON.parse(localStorage.getItem('cadastros') || '[]');
+            // Adiciona pessoa ao cadastro
+            lista_cadastro.push({
+                nome: nome.value,
+                sobrenome: sobrenome.value,
+                idade: idade.value,
+                email: email.value,
+                cpf: cpf.value
+            });
+
+            // Salva a lista alterada
+            localStorage.setItem("cadastros", JSON.stringify(lista_cadastro));
+
+            window.location = "enviar.html";
+
+        }
+    </script>
+</body>
+
+</html>
