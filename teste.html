@@ -177,10 +177,8 @@
             var idade = document.getElementById("idade");
             var email = document.getElementById("email");
             var cpf = document.getElementById("cpf");
-
-            // Pega a lista já cadastrada, se não houver vira um array vazio
             var lista_cadastro = JSON.parse(localStorage.getItem('cadastros') || '[]');
-            // Adiciona pessoa ao cadastro
+           
             lista_cadastro.push({
                 nome: nome.value,
                 sobrenome: sobrenome.value,
@@ -188,12 +186,9 @@
                 email: email.value,
                 cpf: cpf.value
             });
-
-            // Salva a lista alterada
+     
             localStorage.setItem("cadastros", JSON.stringify(lista_cadastro));
-
             window.location = "enviar.html";
-
         }
     </script>
 </body>
